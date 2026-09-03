@@ -1,0 +1,35 @@
+<div class="container mx-auto max-w-5xl px-4 py-8">
+  <section class="rounded-3xl border border-white/40 bg-white/70 p-5 shadow-xl backdrop-blur-md dark:border-slate-700/50 dark:bg-slate-800/70 sm:p-8">
+    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-futuristic-primary">Estude acompanhado</p>
+        <h1 class="mt-1 text-3xl font-bold text-futuristic-text dark:text-dark-text">Chat Studdera</h1>
+        <p class="mt-2 text-futuristic-subtext dark:text-dark-subtext">Tire dúvidas e construa seu raciocínio passo a passo.</p>
+      </div>
+      <span class="w-fit rounded-full bg-futuristic-primary/10 px-3 py-1 text-xs font-semibold text-futuristic-primary">0,5 crédito por mensagem</span>
+    </div>
+
+    <div class="min-h-[360px] max-h-[62vh] space-y-4 overflow-y-auto rounded-2xl bg-white/55 p-4 dark:bg-slate-900/45">
+      @for (message of geminiService.messages(); track $index) {
+        <div [class]="message.role === 'user' ? 'text-right' : 'text-left'">
+          <div [class]="message.role === 'user' ? 'ml-auto inline-block max-w-[88%] rounded-2xl rounded-tr-sm bg-futuristic-primary px-4 py-3 text-left text-white' : 'inline-block max-w-[88%] rounded-2xl rounded-tl-sm bg-slate-100 px-4 py-3 text-left text-slate-700 dark:bg-slate-700 dark:text-slate-100'">
+            <markdown [data]="message.content" [katex]="true" [katexOptions]="katexOptions"></markdown>
+          </div>
+        </div>
+      }
+      @if (geminiService.loading()) {
+        <div class="inline-flex items-center gap-2 rounded-2xl bg-slate-100 px-4 py-3 text-sm text-slate-500 dark:bg-slate-700 dark:text-slate-300">
+          <span class="typing-dots"><span></span><span></span><span></span></span> Pensando…
+        </div>
+      }
+    </div>
+
+    <div class="mt-4 flex gap-3">
+      <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" [disabled]="geminiService.loading()"
+        placeholder="Ex.: Pode me explicar regra de três?"
+        class="min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none ring-futuristic-primary focus:ring-2 disabled:opacity-50 dark:border-slate-600 dark:bg-slate-900" />
+      <button (click)="sendMessage()" [disabled]="geminiService.loading() || !userInput().trim()"
+        class="rounded-xl bg-futuristic-primary px-5 py-3 font-semibold text-white transition hover:bg-futuristic-secondary disabled:cursor-not-allowed disabled:opacity-50">Enviar</button>
+    </div>
+  </section>
+</div>

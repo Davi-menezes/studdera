@@ -2,7 +2,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal, OnInit, HostListener, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink, Router } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { MarkdownModule, KatexOptions } from 'ngx-markdown';
 
 import { ChatMessage } from '../../models/chat.model';
@@ -63,6 +63,17 @@ export class HomeComponent implements OnInit {
   // Estado do modal de confirmação do simulado
   showSimuladoConfirm = signal(false);
   simuladoToStart = signal<string | null>(null);
+  selectedDifficulty = signal<'easy' | 'medium' | 'hard' | 'extreme'>('medium');
+  readonly difficultyOptions = [
+    { value: 'easy' as const, label: 'Fácil', description: 'Reforce os fundamentos' },
+    { value: 'medium' as const, label: 'Médio', description: 'Ganhe consistência' },
+    { value: 'hard' as const, label: 'Difícil', description: 'Eleve o desafio' },
+    { value: 'extreme' as const, label: 'Extremo', description: 'Questões mais exigentes' },
+  ];
+
+  selectedDifficultyLabel(): string {
+    return this.difficultyOptions.find(option => option.value === this.selectedDifficulty())?.label ?? 'Médio';
+  }
 
   katexOptions: KatexOptions = {
     delimiters: [
@@ -102,7 +113,7 @@ export class HomeComponent implements OnInit {
 
   vestibularesPreview = computed(() => this.vestibulares().slice(0, 3));
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     // Saudação inicial movida para ngOnInit para evitar problemas com signals
   }
 
@@ -110,6 +121,16 @@ export class HomeComponent implements OnInit {
     this.setGreeting();
     this.refreshQuestions();
     this.checkOnboarding();
+    this.route.queryParamMap.subscribe(params => {
+      const difficulty = params.get('difficulty');
+      const subject = params.get('subject');
+      if (difficulty && this.difficultyOptions.some(option => option.value === difficulty)) {
+        this.selectedDifficulty.set(difficulty as 'easy' | 'medium' | 'hard' | 'extreme');
+      }
+      if (subject && this.allQuestions[subject]) {
+        this.openExam(subject);
+      }
+    });
   }
 
   checkOnboarding() {
@@ -356,8 +377,15 @@ export class HomeComponent implements OnInit {
         if (this.allQuestions[subject]) {
           console.log(`Using local questions for ${subject}`);
           const localQuestions = [...this.allQuestions[subject]];
-          this.shuffleArray(localQuestions);
-          questions = localQuestions.slice(0, 30).map((q, index) => ({
+          const requestedDifficulty = this.selectedDifficulty();
+          const matchingQuestions = localQuestions.filter(question =>
+            requestedDifficulty === 'extreme'
+              ? question.difficulty === 'hard'
+              : question.difficulty === requestedDifficulty
+          );
+          const questionsForDifficulty = matchingQuestions.length > 0 ? matchingQuestions : localQuestions;
+          this.shuffleArray(questionsForDifficulty);
+          questions = questionsForDifficulty.slice(0, 30).map((q, index) => ({
             ...q,
             id: index
           })) as Simulado[];

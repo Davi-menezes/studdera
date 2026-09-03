@@ -34,6 +34,7 @@ export class FlashcardsComponent {
   subject = signal('');
 
   editingId = signal<string | null>(null);
+  flippedCardId = signal<string | null>(null);
 
   filtered = computed(() => {
     const s = this.subjectFilter().trim().toLowerCase();
@@ -96,6 +97,10 @@ export class FlashcardsComponent {
     this.subject.set('');
   }
 
+  toggleCard(card: Flashcard) {
+    this.flippedCardId.update(currentId => currentId === card.id ? null : card.id);
+  }
+
   async save() {
     this.error.set(null);
     const payload: any = {
@@ -137,6 +142,7 @@ export class FlashcardsComponent {
       await lastValueFrom(
         this.http.delete<{ success: boolean }>(`${this.apiUrl}/${card.id}`, { headers: this.headers() })
       );
+      if (this.flippedCardId() === card.id) this.flippedCardId.set(null);
       await this.refresh();
     } catch (e: any) {
       this.error.set('Erro ao deletar flashcard.');

@@ -20,7 +20,7 @@ import { AuthService } from '../../services/auth.service';
         
         <div class="text-center mb-6">
           <h1 class="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-futuristic-primary to-futuristic-secondary mb-1">
-            Anna.IA
+            Studdera
           </h1>
           <h2 class="text-lg font-semibold text-gray-800 dark:text-white">
             Crie sua conta
@@ -414,4 +414,3 @@ export class RegisterComponent implements OnInit, OnDestroy {
     return /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(value || '');
   }
 }
-

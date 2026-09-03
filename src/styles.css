@@ -31,6 +31,75 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Navegação em cápsula: adaptação Angular do componente de referência. */
+.nav-header {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.15rem;
+    margin: 0 auto;
+    padding: 0.25rem;
+    border: 2px solid #111827;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.nav-header a {
+    display: block;
+    position: relative;
+    z-index: 1;
+    padding: 0.48rem 0.72rem;
+    border-radius: 9999px;
+    color: #475569;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.nav-header a:hover, .nav-header a:focus-visible, .nav-header a.nav-header__active {
+    color: #fff;
+    background: #111827;
+    outline: none;
+}
+
+.nav-header a:hover { transform: translateY(-1px); }
+.nav-header--mobile { border-width: 1px; margin: 0.45rem 0; white-space: nowrap; }
+.nav-header--mobile a { padding: 0.4rem 0.62rem; }
+
+/* Flashcards: a pergunta vem primeiro; o verso gira somente ao clicar no cartão. */
+.flashcard {
+    position: relative;
+    min-height: 245px;
+    perspective: 1200px;
+}
+
+.flashcard__face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 245px;
+    padding: 1.5rem;
+    overflow: hidden;
+    border: 1px solid rgb(229 231 235);
+    border-radius: 1rem;
+    background: #fff;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+    transition: transform 520ms cubic-bezier(.2, .75, .25, 1);
+}
+
+.dark .flashcard__face { border-color: rgb(51 65 85); background: rgb(30 41 59); }
+.flashcard__face--front { text-align: left; cursor: pointer; }
+.flashcard__face--back { transform: rotateY(180deg); }
+.flashcard--flipped .flashcard__face--front { transform: rotateY(-180deg); }
+.flashcard--flipped .flashcard__face--back { transform: rotateY(0); }
+
 /* --- Animação de digitação (3 bolinhas) no chat --- */
 @keyframes dot-bounce {
     0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }

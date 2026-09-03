@@ -26,7 +26,7 @@ import { RouterLink } from '@angular/router';
               1. Aceitação dos Termos
             </h2>
             <p>
-              Ao acessar e utilizar a <strong>Anna.IA</strong>, você concorda em cumprir e estar vinculado a estes Termos de Uso. Esta plataforma é um assistente de estudos baseado em Inteligência Artificial, desenvolvido para auxiliar estudantes em sua jornada acadêmica.
+              Ao acessar e utilizar o <strong>Studdera</strong>, você concorda em cumprir e estar vinculado a estes Termos de Uso. Esta plataforma é um assistente de estudos baseado em Inteligência Artificial, desenvolvido para auxiliar estudantes em sua jornada acadêmica.
             </p>
           </section>
 
@@ -37,7 +37,7 @@ import { RouterLink } from '@angular/router';
               2. Uso da Inteligência Artificial
             </h2>
             <p class="mb-4">
-              A Anna.IA utiliza tecnologias avançadas de IA (como o Google Gemini) para gerar Planos de Estudo e responder dúvidas. É importante notar que:
+              O Studdera utiliza tecnologias avançadas de IA (como o Google Gemini) para gerar Planos de Estudo e responder dúvidas. É importante notar que:
             </p>
             <ul class="list-disc pl-6 space-y-2">
               <li>As respostas são geradas automaticamente e podem conter imprecisões.</li>
@@ -80,7 +80,7 @@ import { RouterLink } from '@angular/router';
               5. Conduta do Usuário
             </h2>
             <p>
-              É proibido utilizar a Anna.IA para gerar conteúdo ilegal, ofensivo ou para tentativas de fraude acadêmica. Reservamo-nos o direito de suspender contas que violem estas diretrizes.
+              É proibido utilizar o Studdera para gerar conteúdo ilegal, ofensivo ou para tentativas de fraude acadêmica. Reservamo-nos o direito de suspender contas que violem estas diretrizes.
             </p>
           </section>
 

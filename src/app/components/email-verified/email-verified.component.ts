@@ -27,7 +27,7 @@ import { Router, ActivatedRoute, RouterLink } from '@angular/router';
             E-mail Verificado!
           </h2>
           <p class="text-futuristic-subtext dark:text-slate-400 mb-8 max-w-xs mx-auto">
-            Sua conta Anna.IA foi ativada com sucesso. Você está pronto para decolar em seus estudos!
+            Sua conta Studdera foi ativada com sucesso. Você está pronto para decolar em seus estudos!
           </p>
           
           <div class="space-y-4">

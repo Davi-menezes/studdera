@@ -1,7 +1,7 @@
 
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { ThemeService } from '../../services/theme.service';
 import { HeaderCreditsModalComponent } from '../header-credits-modal/header-credits-modal.component';
@@ -11,7 +11,7 @@ import { HeaderCreditsModalComponent } from '../header-credits-modal/header-cred
   standalone: true,
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, HeaderCreditsModalComponent, CommonModule]
+  imports: [RouterLink, RouterLinkActive, HeaderCreditsModalComponent, CommonModule]
 })
 export class HeaderComponent {
   userService = inject(UserService);

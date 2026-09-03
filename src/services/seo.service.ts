@@ -4,9 +4,9 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { filter, map } from 'rxjs/operators';
 
-const BASE_URL = 'https://annaia.com.br';
-const DEFAULT_TITLE = 'Anna.IA - Seu Assistente de Estudos Inteligente';
-const DEFAULT_DESCRIPTION = 'Anna.IA é o seu assistente de estudos pessoal que cria planos personalizados, resolve dúvidas e ajuda você a conquistar seus objetivos acadêmicos com inteligência artificial.';
+const BASE_URL = 'https://studdera.vercel.app';
+const DEFAULT_TITLE = 'Studdera - Seu Assistente de Estudos Inteligente';
+const DEFAULT_DESCRIPTION = 'Studdera é o seu assistente de estudos pessoal que cria planos personalizados, resolve dúvidas e ajuda você a conquistar seus objetivos acadêmicos com inteligência artificial.';
 const DEFAULT_KEYWORDS = 'estudos, vestibular, enem, inteligência artificial, plano de estudos, flashcards, educação';
 
 @Injectable({
@@ -41,7 +41,7 @@ export class SeoService {
 
     updateMetaData(data: Record<string, any>, routeTitle?: string) {
         const pageTitle = routeTitle ?? data['title'];
-        const fullTitle = pageTitle ? `${pageTitle} | Anna.IA` : DEFAULT_TITLE;
+        const fullTitle = pageTitle ? `${pageTitle} | Studdera` : DEFAULT_TITLE;
 
         this.titleService.setTitle(fullTitle);
         this.metaService.updateTag({ property: 'og:title', content: fullTitle });

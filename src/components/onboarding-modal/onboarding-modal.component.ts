@@ -15,7 +15,7 @@ import { User } from '../../services/auth.service';
         <div class="bg-white dark:bg-slate-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border border-white/20">
           <div class="p-8">
             <div class="text-center mb-8">
-              <h2 class="text-3xl font-bold text-futuristic-text dark:text-dark-text mb-2">Bem-vindo à Anna.IA! 🚀</h2>
+              <h2 class="text-3xl font-bold text-futuristic-text dark:text-dark-text mb-2">Bem-vindo ao Studdera! 🚀</h2>
               <p class="text-futuristic-subtext dark:text-dark-subtext">Para personalizar sua experiência e criar o melhor plano de estudos para você, precisamos de algumas informações.</p>
             </div>
 
@@ -58,7 +58,7 @@ import { User } from '../../services/auth.service';
                   <label class="block font-medium text-futuristic-subtext dark:text-dark-subtext mb-2">Qual seu principal objetivo?</label>
                   <textarea [(ngModel)]="formData.mainGoal" placeholder="Ex: Passar em Medicina na USP, Melhorar minhas notas em Matemática..."
                     class="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-xl dark:bg-slate-900 dark:text-white h-32 focus:ring-2 focus:ring-futuristic-primary outline-none transition-all resize-none"></textarea>
-                  <p class="text-xs text-gray-500 mt-1">Isso ajudará a Anna a focar nas suas prioridades.</p>
+                  <p class="text-xs text-gray-500 mt-1">Isso ajudará o Studdera a focar nas suas prioridades.</p>
                 </div>
               </div>
 

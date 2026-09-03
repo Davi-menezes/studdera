@@ -29,11 +29,11 @@ export class StudyPlanService {
   }
 
   private saveSession() {
-    localStorage.setItem('anna_simulation_session', JSON.stringify(this.activeSimulationSession));
+    localStorage.setItem('studdera_simulation_session', JSON.stringify(this.activeSimulationSession));
   }
 
   private loadSession() {
-    const saved = localStorage.getItem('anna_simulation_session');
+    const saved = localStorage.getItem('studdera_simulation_session') || localStorage.getItem('anna_simulation_session');
     if (saved) {
       try {
         this.activeSimulationSession = JSON.parse(saved);
@@ -78,6 +78,7 @@ export class StudyPlanService {
       currentIndex: 0,
       answers: {}
     };
+    localStorage.removeItem('studdera_simulation_session');
     localStorage.removeItem('anna_simulation_session');
   }
 
@@ -109,7 +110,7 @@ export class StudyPlanService {
     return await lastValueFrom(this.http.post<{ success: boolean }>(`${this.apiUrl}/${planId}/performance`, { subjectName, performance }, { headers }));
   }
 
-  async generateSimulado(subject: string): Promise<Simulado[]> {
+  async generateSimulado(subject: string, difficulty: 'easy' | 'medium' | 'hard' | 'extreme' = 'medium'): Promise<Simulado[]> {
     // Retorna questões em cache se já houver sessão ativa para essa matéria
     if (this.hasActiveSession(subject)) {
       return this.activeSimulationSession.questions;
@@ -124,7 +125,7 @@ export class StudyPlanService {
 
     try {
       const response = await lastValueFrom(
-        this.http.get<{ success: boolean, data: Simulado[], credits?: number }>(`${this.apiUrl}/simulado/${subject}`, { headers })
+        this.http.get<{ success: boolean, data: Simulado[], credits?: number }>(`${this.apiUrl}/simulado/${encodeURIComponent(subject)}?difficulty=${difficulty}`, { headers })
       );
       console.log('generateSimulado response:', response);
       if (response.success) {

@@ -1,11 +1,18 @@
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="container mx-auto px-2 sm:px-6 lg:px-8">
-    <nav class="flex items-center justify-between h-20" aria-label="Main Navigation">
+    <nav class="flex items-center justify-between gap-3 h-20" aria-label="Navegação principal">
       <a routerLink="/" class="flex items-center space-x-2 text-xl sm:text-2xl font-bold text-futuristic-primary"
-        aria-label="Anna.IA Home">
-        <img src="/src/assets/images/logo.png" alt="Anna.IA Logo" class="h-12 w-12 sm:h-16 sm:w-16 object-contain">
-        <span class="hidden xs:block sm:block">Anna.IA</span>
+        aria-label="Studdera - início">
+        <img src="/src/assets/images/logo.png" alt="Logo Studdera" class="h-10 w-10 sm:h-12 sm:w-12 object-contain">
+        <span class="hidden sm:block">Studdera</span>
       </a>
+      <ul class="nav-header hidden xl:flex" aria-label="Recursos do Studdera">
+        <li><a routerLink="/" routerLinkActive="nav-header__active" [routerLinkActiveOptions]="{ exact: true }">Início</a></li>
+        <li><a routerLink="/chat" routerLinkActive="nav-header__active">Chat</a></li>
+        <li><a routerLink="/simulados" routerLinkActive="nav-header__active">Simulados</a></li>
+        <li><a routerLink="/flashcards" routerLinkActive="nav-header__active">Flashcards</a></li>
+        <li><a routerLink="/study-plan" routerLinkActive="nav-header__active">Plano</a></li>
+      </ul>
       <div class="flex items-center space-x-2 sm:space-x-4">
         <button (click)="toggleTheme()"
           [title]="themeService.theme() === 'light' ? 'Ativar modo escuro' : 'Ativar modo claro'"
@@ -69,6 +76,19 @@
         }
       </div>
     </nav>
+  </div>
+  <div class="xl:hidden border-t border-white/30 dark:border-slate-700/40 bg-white/55 dark:bg-slate-900/45 backdrop-blur-md">
+    <div class="container mx-auto px-2 overflow-x-auto">
+      <ul class="nav-header nav-header--mobile" aria-label="Recursos do Studdera">
+        <li><a routerLink="/" routerLinkActive="nav-header__active" [routerLinkActiveOptions]="{ exact: true }">Início</a></li>
+        <li><a routerLink="/chat" routerLinkActive="nav-header__active">Chat</a></li>
+        <li><a routerLink="/simulados" routerLinkActive="nav-header__active">Simulados</a></li>
+        <li><a routerLink="/flashcards" routerLinkActive="nav-header__active">Cards</a></li>
+        <li><a routerLink="/question-goals" routerLinkActive="nav-header__active">Metas</a></li>
+        <li><a routerLink="/vestibulares" routerLinkActive="nav-header__active">Vestibulares</a></li>
+        <li><a routerLink="/study-plan" routerLinkActive="nav-header__active">Plano</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 <app-header-credits-modal [isOpen]="isCreditsModalOpen()" (close)="closeCreditsModal()"></app-header-credits-modal>

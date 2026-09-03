@@ -4,7 +4,7 @@
 
   <!-- Página inicial -->
   <url>
-    <loc>https://annaia.com.br/</loc>
+    <loc>https://studdera.vercel.app/</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -12,7 +12,7 @@
 
   <!-- Cadastro -->
   <url>
-    <loc>https://annaia.com.br/register</loc>
+    <loc>https://studdera.vercel.app/register</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -20,7 +20,7 @@
 
   <!-- Login -->
   <url>
-    <loc>https://annaia.com.br/login</loc>
+    <loc>https://studdera.vercel.app/login</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -28,10 +28,24 @@
 
   <!-- Termos de Uso -->
   <url>
-    <loc>https://annaia.com.br/terms</loc>
+    <loc>https://studdera.vercel.app/terms</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://studdera.vercel.app/chat</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://studdera.vercel.app/simulados</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

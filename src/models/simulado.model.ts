@@ -6,4 +6,5 @@ export interface Simulado {
   options: string[];
   correctAnswerIndex: number;
   explanation: string;
+  difficulty?: 'easy' | 'medium' | 'hard' | 'extreme';
 }
