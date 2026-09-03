@@ -1,7 +1,23 @@
 User-agent: *
 Allow: /
 
-# Exclude sensitive areas if any (e.g., admin, private dash)
-# Disallow: /admin/
+# Áreas transacionais e protegidas não devem aparecer nos resultados de busca.
+Disallow: /login
+Disallow: /register
+Disallow: /cadastro
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /verification-sent
+Disallow: /verify-email
+Disallow: /email-verified
+Disallow: /auth/
+Disallow: /profile
+Disallow: /credits
+Disallow: /chat
+Disallow: /simulados
+Disallow: /flashcards
+Disallow: /question-goals
+Disallow: /vestibulares
+Disallow: /study-plan
 
 Sitemap: https://studdera.vercel.app/sitemap.xml

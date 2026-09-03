@@ -23,10 +23,10 @@ export const APP_ROUTES: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Studdera - Assistente de Estudos com IA para Vestibular e ENEM',
+    title: 'Plano de Estudos Personalizado para Vestibular e ENEM | Studdera',
     data: {
-      description: 'Prepare-se para o vestibular e ENEM com o Studdera: planos de estudo personalizados, chat com professor virtual, simulados e flashcards inteligentes. Gratuito para começar.',
-      keywords: 'assistente de estudos ia, vestibular, enem, plano de estudos personalizado, simulados, flashcards, professor virtual ia, preparacao vestibular'
+      description: 'Crie um plano de estudos personalizado para vestibular e ENEM com IA. Estude com simulados por dificuldade, flashcards inteligentes, metas e tutor virtual.',
+      keywords: 'plano de estudos personalizado para vestibular e enem, plano de estudos para vestibular, plano de estudos enem, simulados enem, flashcards vestibular'
     }
   },
   {
@@ -34,14 +34,14 @@ export const APP_ROUTES: Routes = [
     component: ChatComponent,
     title: 'Chat de Estudos - Studdera',
     canActivate: [authGuard],
-    data: { description: 'Tire dúvidas e estude com o tutor virtual do Studdera.' }
+    data: { description: 'Tire dúvidas e estude com o tutor virtual do Studdera.', robots: 'noindex, nofollow' }
   },
   {
     path: 'simulados',
     component: SimuladosComponent,
     title: 'Simulados para Vestibular - Studdera',
     canActivate: [authGuard],
-    data: { description: 'Escolha matéria e dificuldade para o seu próximo simulado Studdera.' }
+    data: { description: 'Escolha matéria e dificuldade para o seu próximo simulado Studdera.', robots: 'noindex, nofollow' }
   },
   {
     path: 'login',
@@ -56,13 +56,13 @@ export const APP_ROUTES: Routes = [
     path: 'forgot-password',
     component: ForgotPasswordComponent,
     title: 'Recuperar Senha - Studdera',
-    data: { robots: 'noindex, nofollow' }
+    data: { description: 'Recupere o acesso à sua conta Studdera.', robots: 'noindex, nofollow' }
   },
   {
     path: 'reset-password',
     component: ResetPasswordComponent,
     title: 'Redefinir Senha - Studdera',
-    data: { robots: 'noindex, nofollow' }
+    data: { description: 'Redefina sua senha para voltar aos seus estudos no Studdera.', robots: 'noindex, nofollow' }
   },
   {
     path: 'register',
@@ -70,7 +70,8 @@ export const APP_ROUTES: Routes = [
     title: 'Criar Conta Grátis - Studdera',
     data: {
       description: 'Crie sua conta gratuita no Studdera e comece hoje seu plano de estudos personalizado para o vestibular e ENEM com inteligência artificial.',
-      keywords: 'criar conta studdera, cadastro gratis, estudos vestibular ia, comecar estudar enem'
+      keywords: 'plano de estudos personalizado para vestibular e enem, cadastro studdera',
+      robots: 'noindex, nofollow'
     }
   },
   {
@@ -79,7 +80,7 @@ export const APP_ROUTES: Routes = [
     title: 'Termos de Uso - Studdera',
     data: {
       description: 'Leia os termos de uso e a política de privacidade do Studdera.',
-      robots: 'index, nofollow'
+      robots: 'index, follow'
     }
   },
   { path: 'cadastro', redirectTo: 'register', pathMatch: 'full' },
@@ -87,31 +88,31 @@ export const APP_ROUTES: Routes = [
     path: 'verification-sent',
     component: VerificationSentComponent,
     title: 'Verifique seu E-mail - Studdera',
-    data: { robots: 'noindex, nofollow' }
+    data: { description: 'Confira as instruções para verificar seu e-mail no Studdera.', robots: 'noindex, nofollow' }
   },
   {
     path: 'verify-email',
     component: VerifyEmailComponent,
     title: 'Verificando E-mail - Studdera',
-    data: { robots: 'noindex, nofollow' }
+    data: { description: 'Verificando seu e-mail para ativar sua conta Studdera.', robots: 'noindex, nofollow' }
   },
   {
     path: 'auth/callback',
     component: AuthCallbackComponent,
     title: 'Autenticando - Studdera',
-    data: { robots: 'noindex, nofollow' }
+    data: { description: 'Concluindo sua autenticação no Studdera.', robots: 'noindex, nofollow' }
   },
   {
     path: 'verify-email/:token',
     component: VerifyEmailComponent,
     title: 'Verificando E-mail - Studdera',
-    data: { robots: 'noindex, nofollow' }
+    data: { description: 'Seu e-mail Studdera foi verificado.', robots: 'noindex, nofollow' }
   },
   {
     path: 'email-verified',
     component: EmailVerifiedComponent,
     title: 'E-mail Verificado - Studdera',
-    data: { robots: 'noindex, nofollow' }
+    data: { description: 'Gerencie seu perfil e suas preferências no Studdera.', robots: 'noindex, nofollow' }
   },
   {
     path: 'profile',
@@ -127,7 +128,8 @@ export const APP_ROUTES: Routes = [
     canActivate: [authGuard],
     data: {
       description: 'Adquira créditos para usar todos os recursos avançados de IA do Studdera: chat, simulados e plano de estudos sem limites.',
-      keywords: 'comprar creditos studdera, plano premium estudos, ia educacao preco'
+      keywords: 'comprar creditos studdera, plano premium estudos, ia educacao preco',
+      robots: 'noindex, nofollow'
     }
   },
   {
@@ -137,7 +139,8 @@ export const APP_ROUTES: Routes = [
     canActivate: [authGuard],
     data: {
       description: 'Calendário e informações completas dos principais vestibulares do Brasil em 2026: ENEM, FUVEST, UNICAMP, UNESP, UFRJ e mais. Datas de inscrição e provas.',
-      keywords: 'calendario vestibular 2026, datas enem 2026, inscricao fuvest, unicamp vestibular, vestibulares brasil'
+      keywords: 'calendario vestibular 2026, datas enem 2026, inscricao fuvest, unicamp vestibular, vestibulares brasil',
+      robots: 'noindex, nofollow'
     }
   },
   {
@@ -147,7 +150,8 @@ export const APP_ROUTES: Routes = [
     canActivate: [authGuard],
     data: {
       description: 'Seu cronograma de estudos personalizado gerado por inteligência artificial com base no seu vestibular-alvo, pontos fracos e disponibilidade de horários.',
-      keywords: 'cronograma de estudos personalizado, plano de estudos vestibular ia, organizacao estudos enem'
+      keywords: 'cronograma de estudos personalizado, plano de estudos vestibular ia, organizacao estudos enem',
+      robots: 'noindex, nofollow'
     }
   },
   {
@@ -157,7 +161,8 @@ export const APP_ROUTES: Routes = [
     canActivate: [authGuard],
     data: {
       description: 'Crie e revise flashcards com inteligência artificial. Sistema de repetição espaçada para memorização eficiente das matérias do vestibular e ENEM.',
-      keywords: 'flashcards vestibular, revisao espacada, memorizacao materias, flashcards ia, estudo ativo'
+      keywords: 'flashcards vestibular, revisao espacada, memorizacao materias, flashcards ia, estudo ativo',
+      robots: 'noindex, nofollow'
     }
   },
   {
@@ -167,7 +172,8 @@ export const APP_ROUTES: Routes = [
     canActivate: [authGuard],
     data: {
       description: 'Defina e acompanhe sua meta diária de questões resolvidas. Mantenha a consistência nos estudos com o rastreador de progresso do Studdera.',
-      keywords: 'meta de questoes diarias, progresso estudos, consistencia vestibular, rastreador de estudo'
+      keywords: 'meta de questoes diarias, progresso estudos, consistencia vestibular, rastreador de estudo',
+      robots: 'noindex, nofollow'
     }
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }

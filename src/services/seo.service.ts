@@ -5,9 +5,9 @@ import { DOCUMENT } from '@angular/common';
 import { filter, map } from 'rxjs/operators';
 
 const BASE_URL = 'https://studdera.vercel.app';
-const DEFAULT_TITLE = 'Studdera - Seu Assistente de Estudos Inteligente';
-const DEFAULT_DESCRIPTION = 'Studdera é o seu assistente de estudos pessoal que cria planos personalizados, resolve dúvidas e ajuda você a conquistar seus objetivos acadêmicos com inteligência artificial.';
-const DEFAULT_KEYWORDS = 'estudos, vestibular, enem, inteligência artificial, plano de estudos, flashcards, educação';
+const DEFAULT_TITLE = 'Plano de Estudos Personalizado para Vestibular e ENEM | Studdera';
+const DEFAULT_DESCRIPTION = 'Crie um plano de estudos personalizado para vestibular e ENEM com IA, simulados por nível, flashcards e acompanhamento de metas no Studdera.';
+const DEFAULT_KEYWORDS = 'plano de estudos personalizado para vestibular e enem, plano de estudos para vestibular, plano de estudos enem, simulados enem, flashcards vestibular';
 
 @Injectable({
     providedIn: 'root'
@@ -41,7 +41,7 @@ export class SeoService {
 
     updateMetaData(data: Record<string, any>, routeTitle?: string) {
         const pageTitle = routeTitle ?? data['title'];
-        const fullTitle = pageTitle ? `${pageTitle} | Studdera` : DEFAULT_TITLE;
+        const fullTitle = pageTitle || DEFAULT_TITLE;
 
         this.titleService.setTitle(fullTitle);
         this.metaService.updateTag({ property: 'og:title', content: fullTitle });
