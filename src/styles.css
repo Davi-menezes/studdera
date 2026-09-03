@@ -33,15 +33,14 @@ body {
 
 /* Navegação em cápsula: adaptação Angular do componente de referência. */
 .nav-header {
-    display: flex;
     width: fit-content;
     align-items: center;
     gap: 0.15rem;
     margin: 0 auto;
     padding: 0.25rem;
-    border: 2px solid #111827;
+    border: 1px solid rgb(203 213 225);
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.88);
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
@@ -61,13 +60,27 @@ body {
 
 .nav-header a:hover, .nav-header a:focus-visible, .nav-header a.nav-header__active {
     color: #fff;
-    background: #111827;
+    background: #4f46e5;
     outline: none;
 }
 
 .nav-header a:hover { transform: translateY(-1px); }
 .nav-header--mobile { border-width: 1px; margin: 0.45rem 0; white-space: nowrap; }
 .nav-header--mobile a { padding: 0.4rem 0.62rem; }
+
+.dark .nav-header {
+    border-color: rgb(71 85 105);
+    background: rgba(15, 23, 42, 0.94);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.dark .nav-header a { color: rgb(203 213 225); }
+.dark .nav-header a:hover,
+.dark .nav-header a:focus-visible,
+.dark .nav-header a.nav-header__active {
+    color: #fff;
+    background: #6366f1;
+}
 
 /* Flashcards: a pergunta vem primeiro; o verso gira somente ao clicar no cartão. */
 .flashcard {
